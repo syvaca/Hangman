@@ -8,11 +8,8 @@
 
 using namespace std;
 
-// Prototype. we'll define this below.
 int processGuess(char* word, const char* targetWord, char guess);
 
-// Define an array of strings (since a string is just a char array)
-//  and since string are just char *'s, we really want an array of char *'s
 const char* wordBank[] = {"computer", "president", "trojan", "program",
                           "coffee", "library", "football", "popcorn", 
                           "science", "engineer"};
@@ -31,8 +28,8 @@ int main()
 
   // More initialization code as needed
   char word[80];  // a blank array to use to build up the answer
-                  // It should be initialized with *'s and then
-                  //  change them to the actual letters when the 
+                  // Initialized with *'s and then
+                  //  changed to the actual letters when the 
                   //  user guesses the letter
 
   //fills word[] with *'s and is the length of targetWord
@@ -51,22 +48,16 @@ int main()
     cout << numTurns << " remain...Enter a letter to guess: " << endl;
     cin >> guess;
     cout << endl;
-    
-    //char* word2; //=NULL; FIXED LINE 43
-     
-    
+        
     if(processGuess(word, targetWord, guess) == 0) {
       numTurns--;
     }
-    
-    
+      
     //if words are the same, exit the while loop
     if(strcmp(targetWord, word) == 0) {
       break;
     } 
-  } // closes while(numTurns > 0)
-
-
+  }
 
   // Print out end of game status
   if (numTurns > 0) {
@@ -96,15 +87,6 @@ int processGuess(char* word, const char* targetWord, char guess)
    
   }
   return occur;
-  
-  /*
-  while(*targetWord != '\0') {
-    *targetWord++;
-  if(*guess == *targetWord) {
-    
-  }
-}
-  */
   
 }
 
